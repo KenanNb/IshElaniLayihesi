@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IshElanilayihesi
 {
-    class Worker//Isci
+    class Worker //Isci
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -27,7 +28,7 @@ namespace IshElanilayihesi
             Age = age;
             this.cV = cV;
         }
-
+        
         public override string ToString()
         {
             return $"\nId : {Id} \nName : {Name} \nSurname : {Surname} \nCity : {City} \nPhone : {Phone} \nAge : {Age} \nCV : {cV.ToString()}";
@@ -73,4 +74,6 @@ namespace IshElanilayihesi
         }
 
     }
+
 }
+

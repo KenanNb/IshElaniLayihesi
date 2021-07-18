@@ -8,24 +8,31 @@ using System.Threading.Tasks;
 
 namespace IshElanilayihesi
 {
-    
-    class Advertisements //Elanlar
+    class Notifications // Worker ve Employere xeber vermek ucundur
     {
 
     }
-  
+    class FileHelper //Exceptionlari yazmaq ucundur
+    {
+
+    }
+    class Login
+    {
+
+    }
 
 
     
     class Program
     {
+        static int sId = 0;
         static void JsonSerialization()
         {
             List<Worker> workers = new List<Worker>
             {
                 new Worker
                 {
-                    Id= 1,
+                    Id= ++sId,
                     Name="Hamid",
                     Surname="Ahmadov",
                     City="Ganja",
@@ -47,7 +54,7 @@ namespace IshElanilayihesi
                 },
                 new Worker
                 {
-                    Id= 2,
+                    Id= ++sId,
                     Name="Ahmad",
                     Surname="Ahmadov",
                     City="Ganja",
@@ -69,7 +76,7 @@ namespace IshElanilayihesi
                 },
                new Worker
                 {
-                    Id= 3,
+                    Id= ++sId,
                     Name="Nergiz",
                     Surname="Hasimova",
                     City="Baku",
@@ -91,7 +98,7 @@ namespace IshElanilayihesi
                 },
                new Worker
                 {
-                    Id= 4,
+                    Id= ++sId,
                     Name="Seyide",
                     Surname="Veliyeva",
                     City="Samux",
@@ -113,7 +120,7 @@ namespace IshElanilayihesi
                 },
                 new Worker
                 {
-                    Id= 5,
+                    Id= ++sId,
                     Name="Nezrin",
                     Surname="Faiqov",
                     City="Baku",
@@ -146,7 +153,7 @@ namespace IshElanilayihesi
                 }
             }
         }
-        static void JsonDeserialize()
+        static void JsonDeserializeWorker()
         {
             Worker[] workers = null;
             var serializer = new JsonSerializer();
@@ -164,19 +171,151 @@ namespace IshElanilayihesi
             }
 
         }
-        //static void CVRun()
-        //{
-            //List<CV> cv = new List<CV>();
-        //    //void AddCV(int Id)
-        //    //{
-        //    //    cv.Add(new CV() { })
-        //    //}
+        static void JsonSerializationEmployer()
+        {
+            List<Advertisements> advertisements = new List<Advertisements>
+            {
+                new Advertisements
+                {
+                    Id= ++sId,
+                    CompanyName="Araz ACS",
+                    WorkHour="9  AM to 6 PM",
+                    Experience="1-2 year experience Reguired",
+                    ReguiredAge="20 - 30",
+                    Salary = 2000,
+                    employers = new Employer
+                    {
+                        Id=++sId,
+                        Name="Ceyhun",
+                        Surname="Humbetov",
+                        City ="Baku",
+                        Phone="+994559685864",
+                        Age=38,
+                        Vacancies=10,
+                    },
+                },
+                new Advertisements
+                {
+                    Id= ++sId,
+                    CompanyName="Aztelekom MTB",
+                    WorkHour="9  AM to 6 PM",
+                    Experience="2-4 year experience Reguired",
+                    ReguiredAge="20 - 30",
+                    Salary = 2400,
+                    employers = new Employer
+                    {
+                        Id=++sId,
+                        Name="Soyun",
+                        Surname="Rehimov",
+                        City ="Baku",
+                        Phone="+994553215487",
+                        Age=48,
+                        Vacancies=500,
+                    },
+                },
+               new Advertisements
+                {
+                    Id= ++sId,
+                    CompanyName="Baku Telekom",
+                    WorkHour="9  AM to 6 PM",
+                    Experience="3-5 year experience Reguired",
+                    ReguiredAge="20 - 50",
+                    Salary = 400,
+                    employers = new Employer
+                    {
+                        Id=++sId,
+                        Name="Ruhin",
+                        Surname="Ceyhunov",
+                        City ="Baku",
+                        Phone="+994551234323",
+                        Age=58,
+                        Vacancies=200,
+                    },
+                },
+              new Advertisements
+                {
+                    Id= ++sId,
+                    CompanyName="KTV1",
+                    WorkHour="9  AM to 6 PM",
+                    Experience="1-2 year experience Reguired",
+                    ReguiredAge="20 - 40",
+                    Salary = 450,
+                    employers = new Employer
+                    {
+                        Id=++sId,
+                        Name="Kamran",
+                        Surname="Huseynov",
+                        City ="Baku",
+                        Phone="+994553456464",
+                        Age=28,
+                        Vacancies=120,
+                    },
+                },
+                new Advertisements
+                {
+                    Id= ++sId,
+                    CompanyName="Senaye Avtomatika istehsalat birliyi",
+                    WorkHour="9  AM to 6 PM",
+                    Experience="2-4 year experience Reguired",
+                    ReguiredAge="20 - 65",
+                    Salary = 750,
+                    employers = new Employer
+                    {
+                        Id=++sId,
+                        Name="Ehmed",
+                        Surname="Hemidov",
+                        City ="Baku",
+                        Phone="+994553425435",
+                        Age=78,
+                        Vacancies=80,
+                    },
+                },
+            };
 
-        //}
+
+            var serializer = new JsonSerializer();
+            using (var sw = new StreamWriter("employer.json"))
+            {
+                using (var jw = new JsonTextWriter(sw))
+                {
+                    jw.Formatting = Newtonsoft.Json.Formatting.Indented;
+                    serializer.Serialize(jw, advertisements);
+                }
+            }
+        }
+        static void JsonDeserializeEmployer()
+        {
+            Advertisements[] advertisements = null;
+            var serializer = new JsonSerializer();
+
+            using (StreamReader sr = new StreamReader("employer.json"))
+            {
+                using (var jr = new JsonTextReader(sr))
+                {
+                    advertisements = serializer.Deserialize<Advertisements[]>(jr);
+                }
+                foreach (var item in advertisements)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+
+        }
+        static void Run()
+        {
+            Console.WriteLine("Welcome to the Boss.az!!! ");
+            Console.WriteLine("\n\n");
+
+
+        }
+
+
         static void Main(string[] args)
         {
-            //JsonSerialization();
-            JsonDeserialize();
+            JsonSerialization();
+             //JsonDeserializeWorker();
+           // JsonSerializationEmployer();
+             //JsonDeserializeEmployer();
         }
     }
 }
