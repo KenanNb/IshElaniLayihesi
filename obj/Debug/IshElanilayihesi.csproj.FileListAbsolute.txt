@@ -1,0 +1,10 @@
+C:\Users\Kənan\source\repos\IshElanilayihesi\bin\Debug\IshElanilayihesi.exe.config
+C:\Users\Kənan\source\repos\IshElanilayihesi\bin\Debug\IshElanilayihesi.exe
+C:\Users\Kənan\source\repos\IshElanilayihesi\bin\Debug\IshElanilayihesi.pdb
+C:\Users\Kənan\source\repos\IshElanilayihesi\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Kənan\source\repos\IshElanilayihesi\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Kənan\source\repos\IshElanilayihesi\obj\Debug\IshElanilayihesi.csprojAssemblyReference.cache
+C:\Users\Kənan\source\repos\IshElanilayihesi\obj\Debug\IshElanilayihesi.csproj.CoreCompileInputs.cache
+C:\Users\Kənan\source\repos\IshElanilayihesi\obj\Debug\IshElanilayihesi.csproj.CopyComplete
+C:\Users\Kənan\source\repos\IshElanilayihesi\obj\Debug\IshElanilayihesi.exe
+C:\Users\Kənan\source\repos\IshElanilayihesi\obj\Debug\IshElanilayihesi.pdb
